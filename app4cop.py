@@ -12,15 +12,8 @@ def register_keyword_routes(app):
     from dateutil import parser
 
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-
-# Load from environment
-    creds_json = os.environ['GOOGLE_CREDS_JSON'].replace('\\n', '\n')
-    creds_dict = json.loads(creds_json)
-
-# Authenticate
-    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
     client = gspread.authorize(creds)
-
 
     # --- Sheet URLs and Worksheet Names ---
     sheet1_url = "https://docs.google.com/spreadsheets/d/1vDs8Y2eYMzxGF4-6Q0kT0zbEFxPc6ltUSCOli0zEU1w/edit"
