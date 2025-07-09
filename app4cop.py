@@ -13,10 +13,11 @@ def register_keyword_routes(app):
 
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 
-    # Load from environment (already properly escaped JSON string)
-    creds_dict = json.loads(os.environ['GOOGLE_CREDS_JSON'])
+# Load from environment
+    creds_json = os.environ['GOOGLE_CREDS_JSON'].replace('\\n', '\n')
+    creds_dict = json.loads(creds_json)
 
-    # Authenticate
+# Authenticate
     creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
     client = gspread.authorize(creds)
 
