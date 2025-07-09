@@ -196,6 +196,7 @@
 def register_keyword_routes(app):
     from flask import render_template, request, jsonify
     import json
+    import os
     import pandas as pd
     import gspread
     import re
