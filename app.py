@@ -10,7 +10,8 @@ from collections import defaultdict
 from datetime import datetime
 from flask_cors import CORS
 from app4cop import register_keyword_routes 
-
+import os
+import json
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)
