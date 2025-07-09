@@ -193,6 +193,8 @@
 # if __name__ == '__main__':
 #     app.run(debug=True, port=5000)
 
+
+import os
 def register_keyword_routes(app):
     from flask import render_template, request, jsonify
     import json
