@@ -10,7 +10,10 @@ def register_keyword_routes(app):
     from urllib.parse import unquote
     from datetime import datetime
     from dateutil import parser
-
+    scope = [
+        'https://spreadsheets.google.com/feeds',
+        'https://www.googleapis.com/auth/drive'
+    ]
     creds_json = os.environ['GOOGLE_CREDS_JSON']
     creds_dict = json.loads(creds_json)
     creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
